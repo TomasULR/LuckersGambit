@@ -42,9 +42,7 @@ public class PlayerStats {
     public static int totalWinnings(List<GameResult> history) {
         int winSum = 0;
         for (GameResult g: history) {
-            if (g.isWin()){
-                winSum += g.getWinnings();
-            }
+            winSum += g.getWinnings();
         }
         return winSum;
     }
