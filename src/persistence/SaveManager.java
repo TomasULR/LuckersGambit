@@ -20,15 +20,9 @@ public class SaveManager {
         if (checkAssets()) {
             //tmp: napis do textaku nick + hitorii
             //nick + _ + *pocet souboru + 1*
-            String saveName = player.getNickName() + "_" + new File(Constants.SAVE_DIR).listFiles().length + 1 + ".txt";
-            try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(saveName)))) {
-                pw.println(player.getNickName());
-                //TMP!!
-                player.getHistory().forEach(gameResult -> {
-                    pw.println("#####");
-                    pw.println(gameResult.toString());
-                    pw.println("#####");
-                });
+            String saveName = Constants.SAVE_DIR + "\\" + player.getNickName() + "_" + new File(Constants.SAVE_DIR).listFiles().length + 1 + ".ser";
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(saveName))) {
+                oos.writeObject(player);
             } catch (IOException e) {
                 System.out.println("chyba pri tvorbe save: " + e.getMessage());
                 return false;

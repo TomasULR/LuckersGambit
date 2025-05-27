@@ -3,12 +3,16 @@ package model;
 import assets.Constants;
 import ui.InputHandler;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Player {
+public class Player implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private final String nickName;
     private int balance;
     private final List<GameResult> history;

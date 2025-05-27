@@ -4,7 +4,12 @@ import model.GameResult;
 import model.Player;
 import ui.InputHandler;
 
-public abstract class Game {
+import java.io.Serial;
+import java.io.Serializable;
+
+public abstract class Game implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     String gameName;
     Player player;
     int minBet, inputBet;

@@ -2,7 +2,12 @@ package model;
 
 import core.Game;
 
-public class GameResult {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class GameResult implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private Game game;
     private int winnings, bet;
     private boolean win;
